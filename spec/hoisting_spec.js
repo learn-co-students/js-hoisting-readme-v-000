@@ -12,6 +12,15 @@ describe('crazy', function(){
   it("prints 'hey!!!' to the console from the nested function ", function(){
     spyOn(console, 'log');
     crazy();
-    expect(console.log).toEqual("hey!!");
+    expect(console.log).toHaveBeenCalledWith("hey!!!");
+  });
+});
+
+describe('sayMyName', function(){
+  
+  it("prints 'hey!!!' to the console from the nested function ", function(){
+    spyOn(console, 'log');
+    crazy();
+    expect(console.log).toHaveBeenCalledWith("kristin");
   });
 });
