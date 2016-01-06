@@ -192,6 +192,13 @@ Make sure you run the tests in `test/hoisting-test.js`. You'll be coding your so
 + Fix the code inside the function `sayMyName` to get the function to print out `"Kristin"` to the console.
 
 
++ Use your knowledge of variable hoisting to get the function `callMe` to return `"maybe"`.
+
++ Use your function hoisting expertise to fix the function `thisIsCrazy` to `console.log` the string `"hey!!!"`.
+
++ Fix the code inside the function `sayMyName` to get the function to print out to the console `"Kristin"`.
+
+
 ## Resources
 
 + [Jon Grover's Hoisting Video](https://www.youtube.com/watch?v=nmlJIOnahBA&list=PLj148bJp5wiwI0291sD0vdXiwn1u6aQkc&index=3)
