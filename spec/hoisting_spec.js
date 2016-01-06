@@ -20,7 +20,7 @@ describe('sayMyName', function(){
   
   it("prints 'hey!!!' to the console from the nested function ", function(){
     spyOn(console, 'log');
-    crazy();
-    expect(console.log).toHaveBeenCalledWith("kristin");
+    sayMyName();
+    expect(console.log).toHaveBeenCalledWith("Kristin");
   });
 });
