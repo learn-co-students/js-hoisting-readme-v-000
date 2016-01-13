@@ -3,13 +3,12 @@
 ## Objectives
 + Explain what hoisting is
 + Explain why hoisting is important to remember
-+ Avoid variable hoisting
-+ Avoid function hoisting
++ Avoid the unintended consequences of function and variable hoistin
 
 
 ## What Is Hoisting
 
-Hoisting is when variables and/or functions are hoisted or lifted to the top of the scope in which they were defined. JavaScript was originally intended to be written in a single file. When you're working on a large code base in a single file, you can't always define variables in the order in which you need them, which is why hoisting can be helpful.
+Hoisting is when variables and/or function declarations are hoisted or lifted to the top of the scope in which they were defined. JavaScript was originally intended to be written in a single file. When you're working on a large code base in a single file, you can't always define variables in the order in which you need them, which is why hoisting can be helpful.
 
 Because we now write JavaScript in multiple files for large applications, hoisting can primarily get us into trouble.
 
@@ -71,9 +70,21 @@ console.log(snack);
 // prints out "granola bar"
 ```
 
-In the example above, 
+In the example above, we first define the variable `snack` to store `"granola bar"`. Then we define a function `eat`. Inside the function, we `console.log(snack)` (which we would expect to print out `"granola bar"` because of the variable definition outside the function). The following line, we define `snack` to store `"snickers"`.
 
-the function prints out `undefined`, and the `console.log(snack)` would print out `"granola bar"` because variables defined inside a function are scoped to that function.
+That line, makes JavaScript read our function like this:
+
+```js
+function eat(){
+  var snack;
+  console.log(snack);
+  var snack = "snickers";
+}
+```
+
+So our function will print out to the console `undefined`. Our function returns `undefined` because we have explicitly given it a return value.
+
+Outside the function, we call `console.log(snack)` which prints out `"granola bar"` because variables defined inside a function are scoped to that function.
 
 Variable hoisting is important to remember because you want to define all variables at the top of the scope in which you need them. Define all variables at the top of your functions.
 
