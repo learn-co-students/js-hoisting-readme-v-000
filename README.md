@@ -40,7 +40,7 @@ This JavaScript would print out `undefined`. That's because variable hoisting ju
 function myFunction(){
   var word;
   console.log(word);
-  var word = "cake";
+  word = "cake";
 }
 ```
 
@@ -84,7 +84,7 @@ function eat(){
 
 So our function will print out to the console `undefined`. Our function returns `undefined` because we have explicitly given it a return value.
 
-Outside the function, we call `console.log(snack)` which prints out `"granola bar"` because variables defined inside a function are scoped to that function.
+Outside the function, we call `console.log(snack)` which prints out `"granola bar"` because` variables defined inside a function are scoped to that function.
 
 Variable hoisting is important to remember because you want to define all variables at the top of the scope in which you need them. Define all variables at the top of your functions.
 
