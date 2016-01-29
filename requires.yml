@@ -1,0 +1,5 @@
+javascripts:
+  files:
+    - hoisting.js
+  specs:
+    - spec/hoisting_spec.js
