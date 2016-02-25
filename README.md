@@ -44,6 +44,26 @@ function myFunction(){
 
 We see `undefined` printed in the console because JavaScript reads the variable as declared, but not defined.
 
+To put this another way, we can **declare** the variable `word` simply by
+writing `var word;`. Its initial value is `undefined`. We can then **assign**
+a value to the variable by writing `word = "cake";`. In this way, JavaScript
+let's us split _declaration_ and _assignment_ into two different steps:
+
+```js
+var word;
+word = "cake";
+```
+
+Or we can perform them both on the same line:
+
+```js
+var word = "cake";
+```
+
+Under the hood, JavaScript is always hoisting the _declaration_ to the top of
+the current scope, and then performing the _assignment_ at the appropriate
+line.
+
 Let's start with an example of JavaScript accessing a variable inside a function that was defined outside:
 
 ```js
@@ -55,7 +75,7 @@ eat();
 // prints out "granola bar" and returns undefined
 ```
 
-Let's modify the function a little bit: 
+Let's modify the function a little bit:
 ```js
 var snack = "granola bar";
 function eat(){
@@ -132,7 +152,9 @@ var eat = function(){
 }
 ```
 
-The above code errors with `Uncaught SyntaxError`. This is because function expressions are not hoisted to the top of the scope. JavaScript reads the above code like this:
+The above code errors with `Uncaught TypeError: eat is not a function`. This is
+because the variable declaration for `eat` is hoisted, but not its assignment.
+JavaScript reads the above code like this:
 
 ```js
 var eat;
@@ -144,7 +166,7 @@ eat = function(){
 
 ## Instructions
 
-Make sure you run the tests in `spec/hoisiting_spec.js`. You'll be coding your solutions in `hoisting.js`. You'll find a bunch of pre-written broken code. Your job is to fix the code to pass the tests.
+Make sure you run the tests in `spec/hoisting_spec.js`. You'll be coding your solutions in `hoisting.js`. You'll find a bunch of pre-written broken code. Your job is to fix the code to pass the tests.
 
 + Use your knowledge of variable hoisting to get the function `callMe` to return `"maybe"`.
 
