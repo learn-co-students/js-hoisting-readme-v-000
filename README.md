@@ -125,7 +125,7 @@ eat();
 Function expressions are handled differently than function declarations. Let's take an example:
 
 ```js
-eat():
+eat();
 
 var eat = function(){
   console.log("time to eat cake!");
@@ -160,3 +160,4 @@ Make sure you run the tests in `spec/hoisiting_spec.js`. You'll be coding your s
 + [Tuts Plus](http://code.tutsplus.com/tutorials/javascript-hoisting-explained--net-15092)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/js-hoisting-readme' title='Hoisting'>Hoisting</a> on Learn.co and start learning to code for free.</p>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/js-hoisting-readme'>Hoisting</a> on Learn.co and start learning to code for free.</p>
