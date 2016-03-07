@@ -18,7 +18,7 @@ describe('crazy', function(){
 
 describe('sayMyName', function(){
   
-  it("prints 'hey!!!' to the console from the nested function ", function(){
+  it("prints 'Kristin' to the console from the nested function ", function(){
     spyOn(console, 'log');
     sayMyName();
     expect(console.log).toHaveBeenCalledWith("Kristin");
