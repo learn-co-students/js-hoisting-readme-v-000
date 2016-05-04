@@ -100,7 +100,7 @@ function eat(){
 }
 ```
 
-So our function will print out to the console `undefined`. Our function returns `undefined` because we have explicitly given it a return value.
+So our function will print out to the console `undefined`. Our function returns `undefined` because we have not explicitly given it a return value.
 
 Outside the function, we call `console.log(snack)` which prints out `"granola bar"` because` variables defined inside a function are scoped to that function.
 
@@ -152,9 +152,7 @@ var eat = function(){
 }
 ```
 
-The above code errors with `Uncaught TypeError: eat is not a function`. This is
-because the variable declaration for `eat` is hoisted, but not its assignment.
-JavaScript reads the above code like this:
+The above code errors with `Uncaught TypeError: eat is not a function`. This is because the variable declaration for `eat` is hoisted, but not its assignment. JavaScript reads the above code like this:
 
 ```js
 var eat;
