@@ -6,25 +6,54 @@
 
 ## What Is Hoisting
 
-Hoisting is when variables and/or function declarations are hoisted or lifted to the top of the scope in which they were defined. JavaScript was originally intended to be written in a single file. When you're working on a large code base in a single file, you can't always define variables in the order in which you need them, which is why hoisting can be helpful.
+JavaScript has a well-intentioned trick that can often lead to trouble (and nowadays, even when the trick is used well, it can make code less readable). Here's the gist:
 
-Because we now write JavaScript in multiple files for large applications, hoisting can primarily get us into trouble.
+``` javascript
+// When we declare and assign a variable with `var`
+
+var myVariable = 1;
+
+// JavaScript actually treats it as a separate declaration and assignment:
+
+var myVariable;
+myVariable = 1;
+
+// Here's the thing: JavaScript *hoists* variables like this to the _top_ of the file.
+// So if we have a long file like this
+
+var doSomethingComplicated = function() {
+  // complicated stuff happening in here...
+  // takes
+  // a
+  // lot
+  // of
+  // lines
+  // of
+  // code
+}
+
+var myVariable = 1;
+
+
+// JavaScript actually interprets the file like
+
+var doSomethingComplicated, myVariable;
+
+doSomethingComplicated = function() {
+  // ...
+}
+
+myVariable = 1
+```
+
+We call this process **hoisting**. For all intents and purposes, hoisting applies primarily to variables declared with `var` and to function declarations. Variables declared with `let` and `const` are _technically_ hoisted, but they cannot be referenced until they're assigned. MDN offers a great explanation:
+
+> In ECMAScript 2015, `let` [and `const`] will hoist the variable to the top of the block. However, referencing the variable in the block before the variable declaration results in a ReferenceError. The variable is in a "temporal dead zone" from the start of the block until the declaration is processed.
+> [MDN - let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let)
 
 ## Variable Hoisting
 
-While talking about hoisting, it's important to remember that JavaScript has function-level scope, which means that functions have access to variables that are defined outside of it, but any variables defined inside of a function are not accessible outside.
-
-This is very different from Ruby. Let's take this example in Ruby:
-
-```ruby
-def my_method
-  puts word
-  word = "cake"
-end
-```
-This code would blow up with the undefined method or variable error because we're using the variable `word` before it's defined.
-
-Let's take the same example in JavaScript:
+While talking about hoisting, it's important to remember that JavaScript has function-level scope, which means that functions have access to variables that are defined outside of it, but any variables defined inside of a function are not accessible to the outside.
 
 ```js
 function myFunction(){
@@ -32,7 +61,14 @@ function myFunction(){
   var word = "cake";
 }
 ```
-This JavaScript would print out `undefined`. That's because variable hoisting just raises the **variable declaration**. JavaScript reads the above code like this:
+
+Before reading on, what do you think the above will print? What did we say happens to variables in the previous section?
+
+Ready?
+
+Are you sure?
+
+It would print out `undefined`. That's because variable hoisting just raises the **variable declaration**. JavaScript reads the above code like this:
 
 ```js
 function myFunction(){
@@ -44,10 +80,7 @@ function myFunction(){
 
 We see `undefined` printed in the console because JavaScript reads the variable as declared, but not defined.
 
-To put this another way, we can **declare** the variable `word` simply by
-writing `var word;`. Its initial value is `undefined`. We can then **assign**
-a value to the variable by writing `word = "cake";`. In this way, JavaScript
-let's us split _declaration_ and _assignment_ into two different steps:
+To put this another way, we can **declare** the variable `word` simply by writing `var word;`. Its initial value is `undefined`. We can then **assign** a value to the variable by writing `word = "cake";`. In this way, JavaScript let's us split _declaration_ and _assignment_ into two different steps:
 
 ```js
 var word;
@@ -60,9 +93,7 @@ Or we can perform them both on the same line:
 var word = "cake";
 ```
 
-Under the hood, JavaScript is always hoisting the _declaration_ to the top of
-the current scope, and then performing the _assignment_ at the appropriate
-line.
+Under the hood, JavaScript is always hoisting the _declaration_ to the top of the current scope, and then performing the _assignment_ at the appropriate line.
 
 Let's start with an example of JavaScript accessing a variable inside a function that was defined outside:
 
@@ -90,7 +121,7 @@ console.log(snack);
 
 In the example above, we first define the variable `snack` to store `"granola bar"`. Then we define a function `eat`. Inside the function, we `console.log(snack)` (which we would expect to print out `"granola bar"` because of the variable definition outside the function). The following line, we define `snack` to store `"snickers"`.
 
-That line, makes JavaScript read our function like this:
+JavaScript reads our function like this:
 
 ```js
 function eat(){
@@ -110,19 +141,7 @@ Variable hoisting is important to remember because you want to define all variab
 
 ### Function Declarations
 
-Let's first start with an example in Ruby:
-
-```ruby
-eat
-
-def eat
-  puts "time to eat cake!!"
-end
-```
-
-This code would immediately blow up in Ruby because we're trying to use the method `eat` before it's defined.
-
-Let's translate that code to JavaScript:
+Let's take the following example:
 
 ```js
 eat();
@@ -132,7 +151,7 @@ function eat(){
 }
 ```
 
-The above JavaScript executes correctly. The function prints out `"time to eat cake!"`. That's because JavaScript hoists the function to the top of it's scope, which in this case is the main scope of the program. JavaScript translate the above code to the following:
+The above JavaScript executes correctly. The function prints out `"time to eat cake!"`. That's because JavaScript hoists the **entire function** to the top of it's scope, which in this case is the main scope of the program. JavaScript translate the above code to the following:
 
 ```js
 function eat(){
@@ -164,7 +183,7 @@ eat = function(){
 
 ## Instructions
 
-Make sure you run the tests in `spec/hoisting_spec.js`. You'll be coding your solutions in `hoisting.js`. You'll find a bunch of pre-written broken code. Your job is to fix the code to pass the tests.
+Make sure you run the tests in `test/hoisting-test.js`. You'll be coding your solutions in `hoisting.js`. You'll find a bunch of pre-written broken code. Your job is to fix the code to pass the tests.
 
 + Use your knowledge of variable hoisting to get the function `callMe` to return `"maybe"`.
 
@@ -180,4 +199,3 @@ Make sure you run the tests in `spec/hoisting_spec.js`. You'll be coding your so
 + [Tuts Plus](http://code.tutsplus.com/tutorials/javascript-hoisting-explained--net-15092)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/js-hoisting-readme' title='Hoisting'>Hoisting</a> on Learn.co and start learning to code for free.</p>
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/js-hoisting-readme'>Hoisting</a> on Learn.co and start learning to code for free.</p>
