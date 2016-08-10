@@ -151,7 +151,7 @@ function eat(){
 }
 ```
 
-The above JavaScript executes correctly. The function prints out `"time to eat cake!"`. That's because JavaScript hoists the **entire function** to the top of it's scope, which in this case is the main scope of the program. JavaScript translate the above code to the following:
+The above JavaScript executes correctly. The function prints out `"time to eat cake!"`. That's because JavaScript hoists the **entire function** to the top of its scope, which in this case is the main scope of the program. JavaScript translate the above code to the following:
 
 ```js
 function eat(){
@@ -199,3 +199,5 @@ Make sure you run the tests in `test/hoisting-test.js`. You'll be coding your so
 + [Tuts Plus](http://code.tutsplus.com/tutorials/javascript-hoisting-explained--net-15092)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/js-hoisting-readme' title='Hoisting'>Hoisting</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/js-hoisting-readme'>Hoisting</a> on Learn.co and start learning to code for free.</p>
