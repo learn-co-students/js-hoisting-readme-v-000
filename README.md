@@ -80,7 +80,7 @@ function myFunction(){
 
 We see `undefined` printed in the console because JavaScript reads the variable as declared, but not defined.
 
-To put this another way, we can **declare** the variable `word` simply by writing `var word;`. Its initial value is `undefined`. We can then **assign** a value to the variable by writing `word = "cake";`. In this way, JavaScript let's us split _declaration_ and _assignment_ into two different steps:
+To put this another way, we can **declare** the variable `word` simply by writing `var word;`. Its initial value is `undefined`. We can then **assign** a value to the variable by writing `word = "cake";`. In this way, JavaScript lets us split _declaration_ and _assignment_ into two different steps:
 
 ```js
 var word;
@@ -93,7 +93,7 @@ Or we can perform them both on the same line:
 var word = "cake";
 ```
 
-Under the hood, JavaScript is always hoisting the _declaration_ to the top of the current scope, and then performing the _assignment_ at the appropriate line.
+Under the hood, JavaScript is always hoisting the _declaration_ to the top of the current scope and then performing the _assignment_ at the appropriate line.
 
 Let's start with an example of JavaScript accessing a variable inside a function that was defined outside:
 
@@ -133,7 +133,7 @@ function eat(){
 
 So our function will print out to the console `undefined`. Our function returns `undefined` because we have not explicitly given it a return value.
 
-Outside the function, we call `console.log(snack)` which prints out `"granola bar"` because` variables defined inside a function are scoped to that function.
+Outside the function, we call `console.log(snack)` which prints out `"granola bar"` because variables defined inside a function are scoped to that function.
 
 Variable hoisting is important to remember because you want to define all variables at the top of the scope in which you need them. Define all variables at the top of your functions.
 
@@ -151,7 +151,7 @@ function eat(){
 }
 ```
 
-The above JavaScript executes correctly. The function prints out `"time to eat cake!"`. That's because JavaScript hoists the **entire function** to the top of its scope, which in this case is the main scope of the program. JavaScript translate the above code to the following:
+The above JavaScript executes correctly. The function prints out `"time to eat cake!"`. That's because JavaScript hoists the **entire function** to the top of its scope, which in this case is the main scope of the program. JavaScript translates the above code to the following:
 
 ```js
 function eat(){
@@ -189,7 +189,7 @@ Make sure you run the tests in `test/hoisting-test.js`. You'll be coding your so
 
 + Use your function hoisting expertise to fix the function `thisIsCrazy` to `console.log` the string `"hey!!!"`.
 
-+ Fix the code inside the function `sayMyName` to get the function to print out to the console `"Kristin"`.
++ Fix the code inside the function `sayMyName` to get the function to print out `"Kristin"` to the console.
 
 
 ## Resources
@@ -199,5 +199,3 @@ Make sure you run the tests in `test/hoisting-test.js`. You'll be coding your so
 + [Tuts Plus](http://code.tutsplus.com/tutorials/javascript-hoisting-explained--net-15092)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/js-hoisting-readme' title='Hoisting'>Hoisting</a> on Learn.co and start learning to code for free.</p>
-
-<p class='util--hide'>View <a href='https://learn.co/lessons/js-hoisting-readme'>Hoisting</a> on Learn.co and start learning to code for free.</p>
