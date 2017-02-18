@@ -3,18 +3,19 @@ function callMe() {
   console.log("and this is crazy..");
   console.log("but here's my number..");
   console.log("so call me");
-  return lyric;
   var lyric = "maybe";
+  return lyric;
 }
 
 
 function crazy() {
   // fix the code in here:
-  thisIsCrazy();
 
   var thisIsCrazy = function (){
     console.log("hey!!!")
+
   }
+  thisIsCrazy();
 }
 
 function sayMyName() {
@@ -24,7 +25,13 @@ function sayMyName() {
   sayMy();
 
   function sayMy() {
-    console.log(name);
     var name = "Kristin";
+    console.log(name);
   }
 }
+
+
+
+ //  3) hoisting loggers sayMyName prints 'Kristin' to the console from the nested function:
+ //     AssertionError: expected { Spy, 1 call } to have been called with [ 'Kristin' ]
+ //      at Context.it (test/hoisting-test.js:46:53)
