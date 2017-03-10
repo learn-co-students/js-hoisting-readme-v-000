@@ -127,7 +127,7 @@ JavaScript reads our function like this:
 function eat(){
   var snack;
   console.log(snack);
-  var snack = "snickers";
+  snack = "snickers";
 }
 ```
 
@@ -199,3 +199,5 @@ Make sure you run the tests in `test/hoisting-test.js`. You'll be coding your so
 + [Tuts Plus](http://code.tutsplus.com/tutorials/javascript-hoisting-explained--net-15092)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/js-hoisting-readme' title='Hoisting'>Hoisting</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/js-hoisting-readme'>Hoisting</a> on Learn.co and start learning to code for free.</p>
