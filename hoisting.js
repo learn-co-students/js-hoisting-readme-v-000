@@ -1,4 +1,5 @@
 function callMe() {
+  console.log("hit")
   var lyric = "maybe";
   console.log("I just met you...");
   console.log("and this is crazy..");
@@ -9,6 +10,7 @@ function callMe() {
 
 
 function crazy() {
+  console.log("hit")
   // fix the code in here:
   var thisIsCrazy = function (){
     console.log("hey!!!")
@@ -18,6 +20,7 @@ function crazy() {
 }
 
 function sayMyName() {
+  console.log("hit")
   // fix the code in here:
   var name = "Cricky";
 
