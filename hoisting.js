@@ -1,5 +1,3 @@
-'use strict';
-
 function callMe(){
   var lyric = "maybe";
   console.log("I just met you...");
@@ -15,15 +13,17 @@ function crazy(){
     console.log("hey!!!")
   }
   thisIsCrazy();
-
 }
 
-function sayMyName(){
-  //fix the code in here:
+function sayMyName() {
+  // fix the code in here:
   var name = "Cricky";
-  function sayMy(){
+
+  sayMy();
+
+  function sayMy() {
     var name = "Kristin";
+
     console.log(name);
   }
-  sayMy();  
 }
